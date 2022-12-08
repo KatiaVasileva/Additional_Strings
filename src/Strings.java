@@ -7,6 +7,8 @@ public class Strings {
         insertSeparator();
         task7();
         insertSeparator();
+        task8();
+        insertSeparator();
     }
 
     public static void insertSeparator() {
@@ -26,12 +28,12 @@ public class Strings {
 //  “Фамилия сотрудника — …”
 //  “Отчество сотрудника — ...”
         System.out.println("Задача 5");
-        String fullName = "Иванов Иван Иванович";
+        String fullName = "Иванов Иван Петрович";
         int index1 = fullName.indexOf(" ");
         int index2 = fullName.lastIndexOf(" ");
         String lastName = fullName.substring(0, index1);
         String firstName = fullName.substring(index1 + 1, index2);
-        String middleName = fullName.substring(index2, fullName.length());
+        String middleName = fullName.substring(index2);
         System.out.println("Имя сотрудника - " + firstName);
         System.out.println("Фамилия сотрудника - " + lastName);
         System.out.println("Отчество сотрудника - " + middleName);
@@ -79,5 +81,23 @@ public class Strings {
         str.insert(3, num2);
         str.insert(5, num3);
         System.out.println("Данные строки — " + str);
+    }
+    public static void task8() {
+//  Задача 8
+//  Дана строка из букв английского алфавита "aabccddefgghiijjkk". Нужно найти и напечатать буквы, которые дублируются в строке.
+//  Обратите внимание, что строка отсортирована, т. е. дубли идут друг за другом.
+//  В итоге в консоль должен быть выведен результат программы: "acdgijk".
+        System.out.println("Задача 8");
+        String letters = "aabccddefgghiijjkk";
+        findRepeatLettersInSortedString(letters);
+        System.out.println();
+    }
+
+    public static void findRepeatLettersInSortedString(String letters) {
+        for (int i = 0; i < letters.length() - 1; i++) {
+            if (letters.charAt(i) == letters.charAt(i + 1)) {
+                System.out.print(letters.charAt(i));
+            }
+        }
     }
 }
